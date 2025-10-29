@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Host (root) container */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the entire height of the viewport */
+  height: 100%;
+}
+
+/* Navbar stays at the top */
+app-navbar {
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Main content takes remaining space */
+.container {
+  flex: 1 0 auto; /* This ensures the content expands to fill remaining space */
+  padding-top: 20px; /* Optional: Adjust spacing if needed */
+}
+
+/* Footer stays at the bottom */
+app-footer {
+  flex-shrink: 0; /* Prevent shrinking */
+}
+.bi {
+  font-family: "bootstrap-icons" !important;
+  font-size: 1.5rem; /* Adjust icon size if needed */
+}

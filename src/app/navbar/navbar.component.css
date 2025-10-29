@@ -1,0 +1,72 @@
+/* Navbar base */
+.navbar {
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  color: black;
+}
+
+/* Navbar brand */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #0d6efd !important; /* Bootstrap primary color on hover */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background-color: rgba(255, 255, 255, 0.1); /* subtle highlight */
+  color: #0d6efd !important; /* primary highlight color */
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 700;
+  border-bottom: 2px solid #0d6efd; /* underline active page */
+}
+
+/* Navbar toggler (hamburger) */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Smooth collapse animation */
+.collapse.navbar-collapse {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Optional: sticky navbar */
+.navbar.sticky-top {
+  position: sticky;
+  top: 0;
+  background-color: #111 !important; /* slightly darker for sticky effect */
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 992px) {
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+  }
+}

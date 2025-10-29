@@ -1,0 +1,70 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4 display-5 fw-bold">My Projects</h2>
+
+  <div class="divider-custom mb-4">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+    <div class="divider-custom-line"></div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let project of projects; trackBy: trackByProjectId">
+      <div class="card h-100 shadow-sm project-card" (click)="selectProject(project)">
+        
+        <div class="project-image-wrapper position-relative">
+          <img [src]="project.imageUrl" class="card-img-top project-image" [alt]="project.title">
+          <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+            <i class="fas fa-plus fa-3x text-white"></i>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ project.title }}</h5>
+        </div>
+
+        <div class="card-footer text-center">
+          <small class="text-muted">
+            <span *ngFor="let tech of project.technologies" class="badge bg-secondary me-1">{{ tech }}</span>
+          </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div #projectModal class="modal fade" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <ng-container *ngIf="selectedProject; else loading">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel">{{ selectedProject.title }}</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+
+        <div class="modal-body">
+          <img [src]="selectedProject.imageUrl" class="img-fluid mb-3 rounded modal-project-image" [alt]="selectedProject.title">
+          <p>{{ selectedProject.details }}</p>
+          <hr>
+          <h6>Technologies Used:</h6>
+          <p>
+            <span *ngFor="let tech of selectedProject.technologies" class="badge bg-dark me-1">{{ tech }}</span>
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+      </ng-container>
+
+      <ng-template #loading>
+        <div class="modal-body text-center">
+          <p>Loading project details...</p>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
